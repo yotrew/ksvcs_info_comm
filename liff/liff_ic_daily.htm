@@ -1,0 +1,89 @@
+<!-- Ref:http://hammer1007.blogspot.com/2020/05/line-bot-liff-v2-20200504.html-->
+<!--2022/06/19-->
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_blank">
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <title>上課後回報</title>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+</head>
+<body>
+  <div class="row" style="margin: 10px">
+    <div class="col-12" style="margin: 10px">
+	  <select id="classroom">
+		<option value="1401">百齡1401</option>
+        <option value="1402">百齡1402</option>
+        <option value="1403">百齡1403</option>
+        <option value="1406">百齡1406</option>
+        <option value="1501">百齡1501</option>
+        <option value="1502">百齡1502</option>
+        <option value="1503">百齡1505</option>
+        <option value="1506">百齡1506</option>
+        <option value="1603">百齡1603</option>
+        <option value="1608">百齡1608</option>
+        <option value="7301">實習7301</option>
+        <option value="7302">實習7302</option>
+        <option value="7402">實習7402會計專科教室</option>
+        <option value="6301">實踐6301</option>
+	  </select><br/>
+	  <input type="checkbox" id="good">無狀況<br/>
+	  <div id="div3">
+		  <label id="label3">狀況:</label>
+		  <textarea id="field3" class="form-control" rows="3" cols="30"></textarea>
+	  </div>
+      <button class="btn btn-success btn-block" id="sure">確定</button>
+    </div>
+  </div>
+
+  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+<script>
+var msgtype=1
+    function initializeLiff(myLiffId) {
+      //alert("test1");
+      liff
+        .init({
+          liffId: myLiffId
+        }).then(() => {
+          //alert("test2"); //關閉視窗
+        });
+    }
+
+    function pushMsg(field1,field2,field3) {
+	  if (field1 == '' ) { //資料檢查
+		alert('每個項目都必須輸入！');
+		return;
+	  }
+	  var msg = "回報-"; //回傳訊息字串
+	  g="F";
+	  if(field2==true){
+		g="T";
+	  }
+
+	  msg +=field1+":"+g+":"+ field3;
+	  //alert(msg);
+	  liff.sendMessages([ //推播訊息
+		{ type: 'text',
+		 text: msg
+		}
+	  ])
+	  .then(() => {
+		liff.closeWindow(); //關閉視窗
+		});
+    }
+  
+  
+  
+  $(document).ready(function () {
+	  //initializeLiff('你的 LIFFID');
+	  initializeLiff('1656019011-0go6nO44');
+	  $('#sure').click(function (e) { //按下確定鈕
+	  pushMsg($('#classroom').val(),$('#good').val(),$('#field3').val());
+  });
+});
+</script>
+</body>
+</html>

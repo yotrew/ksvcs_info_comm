@@ -1,0 +1,128 @@
+<!-- Ref:http://hammer1007.blogspot.com/2020/05/line-bot-liff-v2-20200504.html-->
+<!--2023/03/07-->
+<!DOCTYPE html>
+<html>
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <title>	</title>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+</head>
+<body>
+<h3>{{msg|safe}}</h3>
+<form id="report" action="{{form_action}}" method="post">
+  <div class="row" style="margin: 10px">
+    <div class="col-12" style="margin: 10px">
+	  教室:<select id="classroom" name="in1">
+		<option value="1401">百齡1401</option>
+        <option value="1402">百齡1402</option>
+        <option value="1403">百齡1403</option>
+        <option value="1406">百齡1406</option>
+        <option value="1501">百齡1501</option>
+        <option value="1502">百齡1502</option>
+        <option value="1505">百齡1505</option>
+        <option value="1506">百齡1506</option>
+        <option value="1603">百齡1603</option>
+        <option value="1608">百齡1608</option>
+        <option value="7301">實習7301</option>
+        <option value="7302">實習7302</option>
+        <option value="7402">實習7402會計專科教室</option>
+        <option value="6301">實踐6301</option>
+		<option value="一般教室">一般教室電腦</option>
+	  </select><br/>
+	  班級:<select id="class" name="in2">
+		<option value="101">101</option>
+		<option value="102">102</option>
+		<option value="103">103</option>
+		<option value="104">104</option>
+		<option value="105">105</option>
+		<option value="106">106</option>
+		<option value="107">107</option>
+		<option value="108">108</option>
+		<option value="109">109</option>
+		<option value="110">110</option>
+		<option value="111">111</option>
+		<option value="112">112</option>
+		<option value="113">113</option>
+		<option value="114">114</option>
+		<option value="115">115</option>
+		<option value="116">116</option>
+		<option value="117">117</option>
+		<option value="118">118</option>
+		<option value="201">201</option>
+		<option value="202">202</option>
+		<option value="203">203</option>
+		<option value="204">204</option>
+		<option value="205">205</option>
+		<option value="206">206</option>
+		<option value="207">207</option>
+		<option value="208">208</option>
+		<option value="209">209</option>
+		<option value="210">210</option>
+		<option value="211">211</option>
+		<option value="212">212</option>
+		<option value="213">213</option>
+		<option value="214">214</option>
+		<option value="215">215</option>
+		<option value="216">216</option>
+		<option value="217">217</option>
+		<option value="218">218</option>
+		<option value="301">301</option>
+		<option value="302">302</option>
+		<option value="303">303</option>
+		<option value="304">304</option>
+		<option value="305">305</option>
+		<option value="306">306</option>
+		<option value="307">307</option>
+		<option value="308">308</option>
+		<option value="309">309</option>
+		<option value="310">310</option>
+		<option value="311">311</option>
+		<option value="312">312</option>
+		<option value="313">313</option>
+		<option value="314">314</option>
+		<option value="315">315</option>
+		<option value="316">316</option>
+		<option value="317">317</option>
+		<option value="318">318</option>
+		<option value="重修班">重修班</option>
+		<option value="社團">社團</option>
+		<option value="1年級彈性">1年級彈性</option>
+		<option value="2年級彈性">2年級彈性</option>
+		<option value="3年級彈性">3年級彈性</option>
+		<option value="借用">教室借用</option>
+	  </select><br/>
+	  課程時間:<select id="class" name="in6">
+		  <option value="1">第1節</option>
+		  <option value="2">第2節</option>
+		  <option value="3">第3節</option>
+		  <option value="4">第4節</option>
+		  <option value="5">第5節</option>
+		  <option value="6">第6節</option>
+		  <option value="7">第7節</option>
+		  <option value="8">第8節</option>
+	  </select><br/>
+	  學號:<input type="text" id="sid" name="in3" maxlength=8 placeholder="學號/教師借用請填姓名"><br/>
+	  <input type="radio" id="good" name="in4" value="good" checked>無狀況<br/>
+	  <input type="radio" id="good" name="in4" value="nonuse">無使用<br/>
+	  <input type="radio" id="good" name="in4" value="nogood">有問題<br/>
+	  <div id="div3">
+		  <label id="label3">狀況:</label>
+		  <textarea id="field3" class="form-control" rows="3" cols="30" name="in5" placeholder="無狀況免填"></textarea>
+	  </div>
+      <button class="btn btn-success btn-block" id="sure"  type="submit" value="submit">確定</button>
+	  <!--input class="btn btn-success btn-block" id="sure"  type="submit" value="submit">確定</input-->
+    </div>
+  </div>
+</form>
+<script>
+  
+  $(document).ready(function () {
+	  //$('#sure').click(function (e) { //按下確定鈕
+		//});
+});
+</script>
+</body>
+</html>
